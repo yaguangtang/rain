@@ -4,12 +4,12 @@ import pika
 import sys
 
 
-cred=pika.credentials.PlainCredentials(username='guest',password='7d0fe7e2f9c405734dd41d84cb91e877')
+cred=pika.credentials.PlainCredentials(username='guest',password='password')
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='172.16.55.131', credentials=cred))
+        host='127.0.0.1', credentials=cred))
 channel = connection.channel()
-channel.queue_delete(queue='notifications.error')
+channel.queue_delete(queue='notifications.info')
 #channel.queue_bind(exchange='nova',
 #                       queue='notifications.error',
 #                       routing_key='notifications.error')
